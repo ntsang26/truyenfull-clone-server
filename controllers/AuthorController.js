@@ -20,8 +20,8 @@ const AuthorController = {
   }, 
   find: async (req, res) => {
     try {
-      let { queryInput } = req.body
-      let authors = await Author.find(queryInput)
+      let { queryInput, sort } = req.body
+      let authors = await Author.find(queryInput).sort(sort)
       if (!authors.length) return res.json({ errorCode: 1, errorMsg: "No data" })
       return res.json({
         errorCode: 0,

@@ -20,8 +20,8 @@ const CategoryController = {
   },
   find: async (req, res) => {
     try {
-      let { queryInput } = req.body
-      let stories = await Category.find(queryInput)
+      let { queryInput, sort } = req.body
+      let stories = await Category.find(queryInput).sort(sort)
       if (!stories.length) return res.json({ errorCode: 1, errorMsg: "No data" })
       return res.json({
         errorCode: 0,
