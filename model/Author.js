@@ -8,4 +8,4 @@ const authorSchema = new Schema({
   updatedAt: { type: Date, default: Date.now },
 });
 
-module.exports= mongoose.model('Author', authorSchema)
+module.exports = mongoose.model('Author', authorSchema)
