@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require("uuid")
 const StoryController = {
 	find: async (req, res) => {
 		try {
-			let { queryInput = {}, sort = { createdAt: 1 } } = req.body
+			let { queryInput = {}, sort = { createdAt: -1 } } = req.body
 			let stories = await Story.find(queryInput).sort(sort).limit(10)
 			if (!stories.length)
 				return res.json({ errorCode: 1, errorMsg: "No data" })
